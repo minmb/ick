@@ -74,7 +74,7 @@ module Ick
   
   class Invoker
     
-    instance_methods.reject { |m| m =~ /^__/ }.each { |m| undef_method m }
+    instance_methods.reject { |m| m =~ /^__|object_id/ }.each { |m| undef_method m }
   
     def initialize(value, clazz)
       @value = value
