@@ -6,7 +6,7 @@ module Ick
     alias :__instance_eval :instance_eval 
     alias :__class :class 
     alias :__inspect :inspect 
-    instance_methods.reject { |m| m =~ /^__/ }.each { |m| undef_method m }
+    instance_methods.reject { |m| m =~ /^__|object_id/ }.each { |m| undef_method m }
     alias :instance_eval :__instance_eval 
     
     def initialize(value, *additional_attributes)
